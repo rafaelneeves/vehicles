@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "vehicles-api-collection",
+		"name": "Vehicles API",
+		"description": "Collection com todos os endpoints da API de Vehicles e Brands",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "Listar todas as marcas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/brands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands"
+							]
+						},
+						"description": "Retorna uma lista com todas as marcas cadastradas"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar marca por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/brands/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands",
+								"1"
+							]
+						},
+						"description": "Retorna uma marca específica pelo ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar nova marca",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"name\": \"Toyota\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/brands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands"
+							]
+						},
+						"description": "Cria uma nova marca"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar marca",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Toyota Atualizada\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/brands/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands",
+								"1"
+							]
+						},
+						"description": "Atualiza uma marca existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar marca",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/brands/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands",
+								"1"
+							]
+						},
+						"description": "Deleta uma marca pelo ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gerenciamento de marcas"
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Listar todos os veículos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/vehicles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles"
+							]
+						},
+						"description": "Retorna uma lista com todos os veículos cadastrados"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar veículo por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/vehicles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles",
+								"1"
+							]
+						},
+						"description": "Retorna um veículo específico pelo ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar novo veículo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"brand\": \"Corolla\",\n    \"idBrand\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vehicles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles"
+							]
+						},
+						"description": "Cria um novo veículo"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar veículo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"brand\": \"Corolla Cross\",\n    \"idBrand\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vehicles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles",
+								"1"
+							]
+						},
+						"description": "Atualiza um veículo existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar veículo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/vehicles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles",
+								"1"
+							]
+						},
+						"description": "Deleta um veículo pelo ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gerenciamento de veículos"
+		}
+	]
+}
+
