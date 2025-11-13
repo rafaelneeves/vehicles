@@ -9,11 +9,11 @@ import org.springframework.data.relational.core.mapping.Table;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table("Vehicles")
+@Table("vehicles")
 public class Vehicle {
 
     @Id
     private Long id;
-    private String brand;
+    private String model;
     private Long idBrand;
 }
