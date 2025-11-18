@@ -12,6 +12,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -68,10 +69,45 @@ class VehicleServiceImplTest {
     }
 
     @Test
-    void saveOrUpdate() {
+    void saveOrUpdateVehiclesSuccessfully() {
+        VehicleDTO inputDTO = new VehicleDTO(1L, "Civic", 1L);
+        Vehicle savedVehicle = new Vehicle(1L, "Civic", 1L);
+        VehicleDTO expectedDTO = new VehicleDTO(1L, "Civic", 1L);
+
+        when(vehicleRepository.save(any(Vehicle.class)))
+                .thenReturn(Mono.just(savedVehicle));
+
+        StepVerifier.create(vehicleService.saveOrUpdate(inputDTO))
+                .expectNext(expectedDTO)
+                .verifyComplete();
     }
 
     @Test
-    void deleteById() {
+    void saveOrUpdateVehiclesFailure() {
+        when(vehicleRepository.save(any(Vehicle.class)))
+                .thenReturn(Mono.error(new RuntimeException("Error saving or updating a vehicle")));
+
+        StepVerifier.create(vehicleService.saveOrUpdate(new VehicleDTO(1L, "Civic", 1L)))
+                .expectError(RuntimeException.class)
+                .verify();
+    }
+
+    @Test
+    void deleteByIdSuccessfully() {
+        when(vehicleRepository.deleteById(1L))
+                .thenReturn(Mono.empty());
+
+        StepVerifier.create(vehicleService.deleteById(1L))
+                .verifyComplete();
+    }
+
+    @Test
+    void deleteByIdFailure() {
+        when(vehicleRepository.deleteById(1L))
+                .thenReturn(Mono.error(new RuntimeException("Error deleting vehicle")));
+
+        StepVerifier.create(vehicleService.deleteById(1L))
+                .expectError(RuntimeException.class)
+                .verify();
     }
 }
